@@ -6,18 +6,20 @@ mongoose.connect(require('../config.js').dbUrl);
 
 mongoose.set('debug', true);
 
-var DoveSchema = new Schema({
+var CaseSchema = new Schema({
     footnumber: String,
     sex: String,
     note : String,
     date : {type:Date ,default:Date.now()}
 });
-exports.Dove = mongoose.model('Dove', DoveSchema);
 
-var FamilySchema = new Schema({
+exports.Case = mongoose.model('Case', CaseSchema);
+
+var ArticleSchema = new Schema({
+    content : String,
     insertDate: {type:Date, default:Date.now()}
 });
-exports.Family = mongoose.model('Family', FamilySchema);
+exports.Article = mongoose.model('Article', ArticleSchema);
 
 var UserSchema = new Schema({
     username: String,
